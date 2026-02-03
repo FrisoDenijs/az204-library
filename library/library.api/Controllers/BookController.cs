@@ -14,15 +14,15 @@ namespace library.api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(BookDto book)
+        public async Task<IActionResult> PostAsync(BookDto book)
         {
-            return Ok(_bookService.Create(book));
+            return Ok(await _bookService.CreateAsync(book));
         }
 
         [HttpGet]
-        public IActionResult Get(string id) 
+        public async Task<IActionResult> GetAsync(string id) 
         {
-            return Ok(_bookService.Get(id));
+            return Ok(await _bookService.GetAsync(id));
         }
 
         [HttpGet]
@@ -33,15 +33,15 @@ namespace library.api.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(BookDto book) 
+        public async Task<IActionResult> PutAsync(BookDto book) 
         {
-            return Ok(_bookService.Update(book));
+            return Ok(await _bookService.UpdateAsync(book));
         }
 
         [HttpDelete]
-        public IActionResult Delete(string id) 
+        public async Task<IActionResult> DeleteAsync(string id) 
         {
-            _bookService.Delete(id);
+            await _bookService.DeleteAsync(id);
 
             return Accepted();
         }

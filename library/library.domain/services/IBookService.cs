@@ -4,10 +4,10 @@ namespace library.domain.services
 {
     public interface IBookService
     {
-        BookDto Create(BookDto book);
-        BookDto Get(string id);
+        Task<BookDto> CreateAsync(BookDto book);
+        Task<BookDto> GetAsync(string id);
         IEnumerable<BookDto> GetAll();
-        BookDto Update(BookDto book);
-        void Delete(string id);
+        Task<BookDto> UpdateAsync(BookDto book);
+        Task DeleteAsync(string id);
     }
 }

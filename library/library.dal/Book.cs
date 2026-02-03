@@ -10,7 +10,7 @@ namespace library.dal
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public required string Id { get; set; }
+        public string? Id { get; set; }
 
         [Required]
         public required string Name { get; set; }
