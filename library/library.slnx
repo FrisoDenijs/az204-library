@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="library.api/library.api.csproj" />
+  <Project Path="library.dal/library.dal.csproj" />
+  <Project Path="library.domain/library.domain.csproj" />
 </Solution>
