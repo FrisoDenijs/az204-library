@@ -43,7 +43,7 @@ namespace library.api.Controllers
         {
             await _bookService.DeleteAsync(id);
 
-            return Accepted();
+            return NoContent();
         }
     }
 }
