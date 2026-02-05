@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace library.api.Controllers
 {
+    [ApiController]
+    [Route("/books/")]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
@@ -13,32 +15,32 @@ namespace library.api.Controllers
             _bookService = bookService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostAsync(BookDto book)
+        [HttpPost("/")]
+        public async Task<IActionResult> PostAsync([FromBody] BookDto book)
         {
             return Ok(await _bookService.CreateAsync(book));
         }
 
-        [HttpGet]
+        [HttpGet("/{id}")]
         public async Task<IActionResult> GetAsync(string id) 
         {
             return Ok(await _bookService.GetAsync(id));
         }
 
-        [HttpGet]
-        public IActionResult Get() 
+        [HttpGet("/")]
+        public IActionResult GetAll() 
         { 
             return Ok(_bookService.GetAll());
 
         }
 
-        [HttpPut]
-        public async Task<IActionResult> PutAsync(BookDto book) 
+        [HttpPut("/")]
+        public async Task<IActionResult> PutAsync([FromBody] BookDto book) 
         {
             return Ok(await _bookService.UpdateAsync(book));
         }
 
-        [HttpDelete]
+        [HttpDelete("/{id}")]
         public async Task<IActionResult> DeleteAsync(string id) 
         {
             await _bookService.DeleteAsync(id);

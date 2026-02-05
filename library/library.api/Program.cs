@@ -1,4 +1,5 @@
 using library.dal;
+using library.domain.services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,9 +10,11 @@ var connectionString =
         ?? throw new InvalidOperationException("Connection string"
         + "'DefaultConnection' not found.");
 
-builder.Services.AddDbContext<LibraryContext>(options =>
-    options.UseNpgsql(connectionString));
+builder.Services.AddDbContextFactory<LibraryContext>(options =>
+    options.UseNpgsql(connectionString),
+    ServiceLifetime.Scoped);
 
+builder.Services.AddScoped<IBookService, BookService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
