@@ -8,6 +8,14 @@ https://docs.azure.cn/en-us/container-apps/ip-restrictions?pivots=azure-portal
 
 ### Manual Deployment
 ### Postgres
+Use efcore bundle?
+See https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=vs
+
+```
+Bundle-Migration
+.\efbundle.exe --connection <connection string>
+```
+
 ### API Gateway
 ### Auth
 #### Librarian users
