@@ -24,19 +24,26 @@ Bundle-Migration
 ## .NET
 
 ### EF Core
-
 To add a migration and update the database, run the following from VS console:
 ```
 # install and/or update tools
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Update-Package Microsoft.EntityFrameworkCore.Tools
+
 # verify installation
 Get-Help about_EntityFrameworkCore
+
 # migrate and update db
 Add-Migration <MigrationName>
 Update-Database
 ```
+
 For tools see https://learn.microsoft.com/en-us/ef/core/cli/
+
 For migrations see https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs
+
+### Open API
+Default link: `localhost:<port>/openapi/v1.json`
+See https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-10.0&tabs=visual-studio%2Cvisual-studio-code#customize-the-openapi-document-name
 
 ## Angular
