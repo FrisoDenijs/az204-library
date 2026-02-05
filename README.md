@@ -44,6 +44,7 @@ For migrations see https://learn.microsoft.com/en-us/ef/core/managing-schemas/mi
 
 ### Open API
 Default link: `localhost:<port>/openapi/v1.json`
+
 See https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-10.0&tabs=visual-studio%2Cvisual-studio-code#customize-the-openapi-document-name
 
 ## Angular
