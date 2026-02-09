@@ -15,13 +15,14 @@ https://docs.azure.cn/en-us/container-apps/ip-restrictions?pivots=azure-portal
 https://learn.microsoft.com/en-us/azure/container-apps/quickstart-code-to-cloud?tabs=bash%2Ccsharp
 
 #### Postgres
-Use efcore bundle?
-See https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=vs
+I created an `appsettings.Production.json` and used the ADO.NET connection string as found in Azure.
 
-```
-Bundle-Migration
-.\efbundle.exe --connection <connection string>
-```
+Then I used the following command:
+
+`dotnet ef database update -- --environment Production`
+
+See: https://learn.microsoft.com/en-us/ef/core/cli/dotnet#aspnet-core-environment
+See: https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin
 
 ### API Gateway
 ### Auth
