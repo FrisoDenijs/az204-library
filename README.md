@@ -25,6 +25,9 @@ Bundle-Migration
 #### Librarian users
 #### Reader users
 
+### Blob storage
+https://microsoftlearning.github.io/mslearn-azure-developer/instructions/azure-storage/01-blob-storage-resources-dotnet.html
+
 ## .NET
 
 ### EF Core
