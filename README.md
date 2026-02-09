@@ -28,6 +28,9 @@ Bundle-Migration
 ### Blob storage
 https://microsoftlearning.github.io/mslearn-azure-developer/instructions/azure-storage/01-blob-storage-resources-dotnet.html
 
+### Cosmos DB
+https://microsoftlearning.github.io/mslearn-azure-developer/instructions/azure-cosmos-db/01-comosdb-create-resources-sdk.html
+
 ## .NET
 
 ### EF Core
