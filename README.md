@@ -11,7 +11,10 @@ See https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interacti
 https://docs.azure.cn/en-us/container-apps/ip-restrictions?pivots=azure-portal
 
 ### Manual Deployment
-### Postgres
+#### .NET app
+https://learn.microsoft.com/en-us/azure/container-apps/quickstart-code-to-cloud?tabs=bash%2Ccsharp
+
+#### Postgres
 Use efcore bundle?
 See https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=vs
 
