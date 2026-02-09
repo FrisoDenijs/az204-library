@@ -3,6 +3,10 @@ practice app for az204
 
 ## Azure
 
+### Local CLI
+Sign in with `az login --use-device-code`.
+See https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interactively?view=azure-cli-latest#sign-in-with-a-browser
+
 ### IP Restrictions
 https://docs.azure.cn/en-us/container-apps/ip-restrictions?pivots=azure-portal
 
