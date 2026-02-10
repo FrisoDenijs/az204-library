@@ -15,31 +15,31 @@ namespace library.domain.services
 
         public async Task<BookDto> CreateAsync(BookDto book)
         {
-            using var context = _contextFactory.CreateDbContext();
+                using var context = _contextFactory.CreateDbContext();
 
-            var entry = context.Books.Add(new Book
-            {
-                Name = book.Name,
-                Genre = book.Genre,
-                Author = book.Author,
-            });
+                var entry = context.Books.Add(new Book
+                {
+                    Name = book.Name,
+                    Genre = book.Genre,
+                    Author = book.Author,
+                });
 
-            await context.SaveChangesAsync();
+                await context.SaveChangesAsync();
 
-            var entity = entry.Entity;
+                var entity = entry.Entity!;
 
-            return new BookDto ( entity.Id, entity.Name, entity.Genre, entity.Author );
+                return new BookDto(entity.Id, entity.Name, entity.Genre, entity.Author);
         }
 
         public async Task DeleteAsync(string id)
         {
             using var context = _contextFactory.CreateDbContext();
 
-            var entity = await context.Books.SingleAsync(b =>  b.Id == id);
+            var entity = await context.Books.SingleAsync(b => b.Id == id);
 
             context.Remove(entity);
 
-            await context.SaveChangesAsync();  
+            await context.SaveChangesAsync();
 
             return;
         }
@@ -48,17 +48,18 @@ namespace library.domain.services
         {
             using var context = _contextFactory.CreateDbContext();
 
-            return context.Books.Select(b => new BookDto ( b.Id, b.Name, b.Genre, b.Author ));
+            var books = context.Books.Select(b => new BookDto(b.Id, b.Name, b.Genre, b.Author)).ToArray();
+
+            return books;
         }
 
         public async Task<BookDto> GetAsync(string id)
         {
-
             using var context = _contextFactory.CreateDbContext();
 
             var entity = await context.Books.SingleAsync(b => b.Id == id)!;
 
-            return new BookDto (entity.Id, entity.Name, entity.Genre, entity.Author );
+            return new BookDto(entity.Id, entity.Name, entity.Genre, entity.Author);
         }
 
         public async Task<BookDto> UpdateAsync(BookDto book)
@@ -68,14 +69,14 @@ namespace library.domain.services
             var entity = await context.Books.SingleAsync(b => b.Id == book.Id)!;
 
             entity.Author = book.Author;
-            entity.Genre  = book.Genre;
+            entity.Genre = book.Genre;
             entity.Name = book.Name;
 
             var entry = context.Books.Update(entity);
 
             await context.SaveChangesAsync();
 
-            return new BookDto ( entity.Id, entity.Name, entity.Genre, entity.Author );
+            return new BookDto(entity.Id, entity.Name, entity.Genre, entity.Author);
         }
     }
 }
