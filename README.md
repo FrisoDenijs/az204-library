@@ -5,6 +5,7 @@ practice app for az204
 
 ### Local CLI
 Sign in with `az login --use-device-code`.
+
 See https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interactively?view=azure-cli-latest#sign-in-with-a-browser
 
 ### IP Restrictions
@@ -12,7 +13,8 @@ https://docs.azure.cn/en-us/container-apps/ip-restrictions?pivots=azure-portal
 
 ### Manual Deployment
 #### .NET app
-https://learn.microsoft.com/en-us/azure/container-apps/quickstart-code-to-cloud?tabs=bash%2Ccsharp
+- https://learn.microsoft.com/en-us/azure/container-apps/quickstart-code-to-cloud?tabs=bash%2Ccsharp
+- https://learn.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-rest-api
 
 #### Postgres
 I created an `appsettings.Production.json` and used the ADO.NET connection string as found in Azure.
