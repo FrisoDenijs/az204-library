@@ -13,6 +13,24 @@ https://docs.azure.cn/en-us/container-apps/ip-restrictions?pivots=azure-portal
 
 ### Manual Deployment
 #### .NET app
+```
+az login --use-device-code
+az upgrade
+az extension add --name containerapp --upgrade --allow-preview true
+az provider register --namespace Microsoft.App
+az provider register --namespace Microsoft.OperationalInsights
+
+
+$RESOURCE_GROUP="<resource group name>"
+$LOCATION="canadacentral"
+$ENVIRONMENT="production"
+$API_NAME="library-api"
+
+az group create --name $RESOURCE_GROUP --location $LOCATION
+
+az containerapp up --name $API_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --environment $ENVIRONMENT --source .
+
+```
 - https://learn.microsoft.com/en-us/azure/container-apps/quickstart-code-to-cloud?tabs=bash%2Ccsharp
 - https://learn.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-rest-api
 
