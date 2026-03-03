@@ -44,6 +44,9 @@ Then I used the following command:
 - See: https://learn.microsoft.com/en-us/ef/core/cli/dotnet#aspnet-core-environment
 - See: https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin
 
+#### Angular
+- https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-angular?pivots=github
+
 ### API Gateway
 ### Auth
 #### Librarian users
