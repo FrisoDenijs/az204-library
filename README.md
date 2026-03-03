@@ -49,9 +49,11 @@ Then I used the following command:
 
 ### API Gateway
 ### Auth
+- https://learn.microsoft.com/en-us/entra/external-id/customers/concept-planning-your-solution
 #### Librarian users
 #### Reader users
-See: https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers
+- https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers
+- https://learn.microsoft.com/en-us/entra/external-id/self-service-sign-up-user-flow
 
 ### Blob storage
 https://microsoftlearning.github.io/mslearn-azure-developer/instructions/azure-storage/01-blob-storage-resources-dotnet.html
