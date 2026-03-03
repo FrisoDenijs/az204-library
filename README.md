@@ -41,13 +41,14 @@ Then I used the following command:
 
 `dotnet ef database update -- --environment Production`
 
-See: https://learn.microsoft.com/en-us/ef/core/cli/dotnet#aspnet-core-environment
-See: https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin
+- See: https://learn.microsoft.com/en-us/ef/core/cli/dotnet#aspnet-core-environment
+- See: https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin
 
 ### API Gateway
 ### Auth
 #### Librarian users
 #### Reader users
+See: https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers
 
 ### Blob storage
 https://microsoftlearning.github.io/mslearn-azure-developer/instructions/azure-storage/01-blob-storage-resources-dotnet.html
