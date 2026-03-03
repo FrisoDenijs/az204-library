@@ -50,6 +50,7 @@ Then I used the following command:
 ### API Gateway
 ### Auth
 - https://learn.microsoft.com/en-us/entra/external-id/customers/concept-planning-your-solution
+- https://learn.microsoft.com/en-us/entra/external-id/self-service-sign-up-overview
 #### Librarian users
 #### Reader users
 - https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers
