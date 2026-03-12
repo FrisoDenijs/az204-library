@@ -46,6 +46,7 @@ Then I used the following command:
 
 #### Angular
 - https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-angular?pivots=github
+- https://azureossd.github.io/2024/07/30/Deploying-Angular-SSR-to-App-Service-Windows/
 
 ### API Gateway
 ### Auth

@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:library-ui": "node dist/library-ui/server/server.mjs"
+    "serve:ssr:library-ui": "node dist/library-ui/server/server.mjs",
+    "zip": "tar -c -f library-ui.zip dist server.js web.config"
   },
   "private": true,
   "packageManager": "npm@11.6.2",
