@@ -48,6 +48,13 @@ Then I used the following command:
 - https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-angular?pivots=github
 - https://azureossd.github.io/2024/07/30/Deploying-Angular-SSR-to-App-Service-Windows/
 
+```
+$ANGULAR-APP="az204-library-ui"
+npm i; npm run build; npm run zip
+az login --use-device-code
+az webapp deploy -g $RESOURCE_GROUP -n $ANGULAR-APP --src-path ./libary-ui.zip --type zip --async true
+```
+
 ### API Gateway
 ### Auth
 - https://learn.microsoft.com/en-us/entra/external-id/customers/concept-planning-your-solution

@@ -4,11 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "clean": "rimraf dist",
     "build": "ng build",
+    "rebuild": "npm run clean && npm run build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:library-ui": "node dist/library-ui/server/server.mjs",
-    "zip": "tar -c -f library-ui.zip dist server.js web.config"
+    "zip": "tar -c -f library-ui.zip dist server.js web.config",
+    "prep:pub": "npm i && npm run rebuild && npm run zip"
   },
   "private": true,
   "packageManager": "npm@11.6.2",
@@ -33,6 +36,7 @@
     "@types/node": "^20.17.19",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
+    "rimraf": "^6.1.3",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }
