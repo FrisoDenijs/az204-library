@@ -21,7 +21,7 @@ az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 
 
-$RESOURCE_GROUP="<resource group name>"
+$RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
 $ENVIRONMENT="production"
 $API_NAME="library-api"
@@ -45,15 +45,24 @@ Then I used the following command:
 - See: https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin
 
 #### Angular
-- https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-angular?pivots=github
-- https://azureossd.github.io/2024/07/30/Deploying-Angular-SSR-to-App-Service-Windows/
 
 ```
-$ANGULAR-APP="az204-library-ui"
-npm i; npm run build; npm run zip
 az login --use-device-code
-az webapp deploy -g $RESOURCE_GROUP -n $ANGULAR-APP --src-path ./libary-ui.zip --type zip --async true
+
+$RESOURCE_GROUP="az204-library-rg"
+$APP_PLAN="az204-library"
+$ANGULAR_APP="az204-library-ui"
+
+az appservice plan create -g $RESOURCE_GROUP -n $APP_PLAN --sku F1
+az webapp create -g $RESOURCE_GROUP -p $APP_PLAN -n $ANGULAR_APP
+
+npm run prep:pub
+az webapp deploy -g $RESOURCE_GROUP -n $ANGULAR_APP --src-path C:\projects\az204-library\library-ui\library-ui.zip --type zip --async true
 ```
+- https://azureossd.github.io/2024/07/30/Deploying-Angular-SSR-to-App-Service-Windows/
+
+See deployment at `http://<yoursitename>.scm.azurewebsites.net`
+- https://stackoverflow.com/a/26385007/1984657
 
 ### API Gateway
 ### Auth
