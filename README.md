@@ -24,7 +24,7 @@ az provider register --namespace Microsoft.OperationalInsights
 $RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
 $ENVIRONMENT="production"
-$API_NAME="library-api"
+$API_NAME="az204-library-api-containerapp"
 
 az group create --name $RESOURCE_GROUP --location $LOCATION
 
@@ -50,8 +50,8 @@ Then I used the following command:
 az login --use-device-code
 
 $RESOURCE_GROUP="az204-library-rg"
-$APP_PLAN="az204-library"
-$ANGULAR_APP="az204-library-ui"
+$APP_PLAN="az204-library-plan"
+$ANGULAR_APP="az204-library-ui-webapp"
 
 az appservice plan create -g $RESOURCE_GROUP -n $APP_PLAN --sku F1
 az webapp create -g $RESOURCE_GROUP -p $APP_PLAN -n $ANGULAR_APP
