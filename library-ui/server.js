@@ -1,3 +1,3 @@
- import("./dist/[project_name]/server/server.mjs");
+ import("./dist/library-ui/server/server.mjs");
 
  

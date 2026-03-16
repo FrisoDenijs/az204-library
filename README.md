@@ -56,8 +56,9 @@ $ANGULAR_APP="az204-library-ui-webapp"
 az appservice plan create -g $RESOURCE_GROUP -n $APP_PLAN --sku F1
 az webapp create -g $RESOURCE_GROUP -p $APP_PLAN -n $ANGULAR_APP
 
-npm run prep:pub
-az webapp deploy -g $RESOURCE_GROUP -n $ANGULAR_APP --src-path C:\projects\az204-library\library-ui\library-ui.zip --type zip --async true
+# manually zip for now
+# include dist, server.js and web.config
+az webapp deploy -g $RESOURCE_GROUP -n $ANGULAR_APP --src-path "C:\projects\az204-library\library-ui\library-ui.zip" --type zip --async true
 ```
 - https://azureossd.github.io/2024/07/30/Deploying-Angular-SSR-to-App-Service-Windows/
 

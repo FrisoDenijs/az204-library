@@ -9,9 +9,7 @@
     "rebuild": "npm run clean && npm run build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:library-ui": "node dist/library-ui/server/server.mjs",
-    "zip": "tar -c -f library-ui.zip dist server.js web.config",
-    "prep:pub": "npm i && npm run rebuild && npm run zip"
+    "serve:ssr:library-ui": "node dist/library-ui/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.6.2",
