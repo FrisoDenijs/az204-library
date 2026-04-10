@@ -107,3 +107,9 @@ Default link: `localhost:<port>/openapi/v1.json`
 See https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-10.0&tabs=visual-studio%2Cvisual-studio-code#customize-the-openapi-document-name
 
 ## Angular
+### Docker
+Build and run with the following commands:
+```
+docker build . -t library-ui
+docker run -p 4000:4000 library-ui
+```
