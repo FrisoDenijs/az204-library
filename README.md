@@ -12,14 +12,18 @@ See https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interacti
 https://docs.azure.cn/en-us/container-apps/ip-restrictions?pivots=azure-portal
 
 ### Manual Deployment
-#### .NET app
+#### Setup
 ```
 az login --use-device-code
 az upgrade
 az extension add --name containerapp --upgrade --allow-preview true
 az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
+```
 
+#### .NET app
+```
+az login --use-device-code
 
 $RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
@@ -50,15 +54,13 @@ Then I used the following command:
 az login --use-device-code
 
 $RESOURCE_GROUP="az204-library-rg"
-$APP_PLAN="az204-library-plan"
-$ANGULAR_APP="az204-library-ui-webapp"
+$LOCATION="canadacentral"
+$ENVIRONMENT="production"
+$UI_NAME="az204-library-ui-containerapp"
 
-az appservice plan create -g $RESOURCE_GROUP -n $APP_PLAN --sku F1
-az webapp create -g $RESOURCE_GROUP -p $APP_PLAN -n $ANGULAR_APP
+az group create --name $RESOURCE_GROUP --location $LOCATION
 
-# manually zip for now
-# include dist, server.js and web.config
-az webapp deploy -g $RESOURCE_GROUP -n $ANGULAR_APP --src-path "C:\projects\az204-library\library-ui\library-ui.zip" --type zip --async true
+az containerapp up --name $UI_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --environment $ENVIRONMENT --source .
 ```
 - https://azureossd.github.io/2024/07/30/Deploying-Angular-SSR-to-App-Service-Windows/
 
