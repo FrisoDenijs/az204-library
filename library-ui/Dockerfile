@@ -4,7 +4,8 @@ WORKDIR /app/src
 COPY package*.json ./
 RUN npm ci
 COPY . ./
-RUN npm run build
+RUN npm install -g @angular/cli
+RUN npm run build:prod
 
 FROM node:24.13.0
 WORKDIR /usr/app
