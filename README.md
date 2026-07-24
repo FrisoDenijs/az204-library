@@ -26,10 +26,12 @@ $RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
 
 az group create --name $RESOURCE_GROUP --location $LOCATION
-az deployment group create --name main --template-file main.bicep -g $RESOURCE_GROUP
+az deployment group create --name main --template-file main.bicep -g $RESOURCE_GROUP --parameters environmentType=nonprod
 ```
 
-See https://learn.microsoft.com/en-us/training/modules/build-first-bicep-file/4-exercise-define-resources-bicep-file?pivots=cli
+See:
+- https://learn.microsoft.com/en-us/training/modules/build-first-bicep-file/4-exercise-define-resources-bicep-file?pivots=cli
+- https://learn.microsoft.com/en-us/training/modules/build-first-bicep-file/6-exercise-add-parameters-variables-bicep-file?pivots=cli
 
 
 ### IP Restrictions
