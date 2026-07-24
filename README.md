@@ -4,20 +4,23 @@ practice app for az204
 ## Azure
 
 ### Local CLI
-Install with `winget install --exact --id Microsoft.AzureCLI`
+#### Install 
+ `winget install --exact --id Microsoft.AzureCLI`
 
 See https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest&pivots=winget
 
-Sign in with `az login --use-device-code`.
+#### Sign in 
+`az login --use-device-code`.
 
 See https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interactively?view=azure-cli-latest#sign-in-with-a-browser
 
 ### Bicep
-Install
+#### Install
 ```
 az bicep install && az bicep upgrade
 ```
 
+#### Run
 ```
 $RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
