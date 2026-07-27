@@ -37,6 +37,7 @@ az deployment group create --name main --template-file main.bicep -g $RESOURCE_G
 See:
 - https://learn.microsoft.com/en-us/training/modules/build-first-bicep-file/4-exercise-define-resources-bicep-file?pivots=cli
 - https://learn.microsoft.com/en-us/training/modules/build-first-bicep-file/6-exercise-add-parameters-variables-bicep-file?pivots=cli
+- https://learn.microsoft.com/en-us/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep
 
 
 ### IP Restrictions

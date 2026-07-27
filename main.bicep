@@ -31,8 +31,15 @@ module appService './appService.bicep' = {
     location: location
     appServiceAppName: appServiceAppName
     environmentType: environmentType
-    apiName: apiName
+  }
+}
+
+module container './container.bicep' = {
+  name: 'container'
+  params: {
+    location: location
     imageTag: imageTag
+    apiName: apiName
   }
 }
 

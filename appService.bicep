@@ -1,7 +1,5 @@
 param location string
 param appServiceAppName string
-param apiName string
-param imageTag string
 
 @allowed([
   'nonprod'
@@ -26,21 +24,6 @@ resource appServiceApp 'Microsoft.Web/sites@2024-04-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
-  }
-}
-
-resource libraryApi 'Microsoft.ContainerInstance/containerGroupProfiles@2026-07-01' = {
-  name: apiName
-  location: location
-  properties: {
-    containers: [
-      {
-        name: apiName
-        properties: {
-          image: '${apiName}:${imageTag}'
-        }
-      }
-    ]
   }
 }
 
