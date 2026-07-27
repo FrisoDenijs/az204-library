@@ -2,6 +2,8 @@ param location string = resourceGroup().location
 param basename string = 'az204lib'
 param storageAccountName string = '${basename}${uniqueString(resourceGroup().id)}'
 param appServiceAppName string = '${basename}${uniqueString(resourceGroup().id)}'
+param apiName string
+param imageTag string
 
 @allowed([
   'nonprod'
@@ -29,6 +31,8 @@ module appService './appService.bicep' = {
     location: location
     appServiceAppName: appServiceAppName
     environmentType: environmentType
+    apiName: apiName
+    imageTag: imageTag
   }
 }
 

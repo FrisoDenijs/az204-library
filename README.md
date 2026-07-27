@@ -26,11 +26,12 @@ $RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
 $ACR_NAME="az204lib"
 $API_NAME="az204-library-api-containerapp"
+$TAG="1.0.0"
 
 az group create --name $RESOURCE_GROUP --location $LOCATION
 az acr create -n $ACR_NAME -g $RESOURCE_GROUP --sku Basic --location $LOCATION
-az acr build --registry $ACR_NAME --image $API_NAME ./library
-az deployment group create --name main --template-file main.bicep -g $RESOURCE_GROUP --parameters environmentType=nonprod
+az acr build --registry $ACR_NAME --image $API_NAME":"$TAG ./library
+az deployment group create --name main --template-file main.bicep -g $RESOURCE_GROUP --parameters environmentType=nonprod imageTag=$TAG apiName=$API_NAME
 ```
 
 See:
