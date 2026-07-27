@@ -12,7 +12,9 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["library.api/library.api.csproj", "library.api/"]
+COPY ["./library.api/library.api.csproj", "library.api/"]
+COPY ["./library.dal/library.dal.csproj", "library.dal/"]
+COPY ["./library.domain/library.domain.csproj", "library.domain/"]
 RUN dotnet restore "./library.api/library.api.csproj"
 COPY . .
 WORKDIR "/src/library.api"
