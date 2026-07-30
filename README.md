@@ -34,8 +34,10 @@ See:
 
 #### Run
 ```
-terraform plan
-terraform apply
+$RESOURCE_GROUP="az204-library-rg"
+$LOCATION="canadacentral"
+terraform plan -var resource_group_name=$RESOURCE_GROUP -var resource_group_location=$LOCATION
+terraform apply -var resource_group_name=$RESOURCE_GROUP -var resource_group_location=$LOCATION
 
 terraform destroy
 ```

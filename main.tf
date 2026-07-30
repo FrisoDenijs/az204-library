@@ -1,3 +1,13 @@
+variable "resource_group_name" {
+  description = "Name of resource group"
+  type        = string
+}
+
+variable "resource_group_location" {
+  description = "Location of resource group"
+  type        = string
+}
+
 # Configure the Azure provider
 terraform {
   required_providers {
@@ -15,6 +25,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
-  location = "canadacentral"
+  name     = var.resource_group_name
+  location = var.resource_group_location
 }
