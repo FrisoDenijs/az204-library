@@ -31,13 +31,23 @@ terraform init
 
 See:
 - https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
+- https://medium.com/@vivazmo/azure-container-apps-with-terraform-part-1-ae20649e0dff
+- https://medium.com/@abhimanyubajaj98/a-devops-guide-to-deploying-azure-container-registry-and-container-group-using-terraform-and-bash-341203aa80be
 
 #### Run
 ```
 $RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
-terraform plan -var resource_group_name=$RESOURCE_GROUP -var resource_group_location=$LOCATION
-terraform apply -var resource_group_name=$RESOURCE_GROUP -var resource_group_location=$LOCATION
+$ACR_NAME="az204lib"
+$API_NAME="az204-library-api-containerapp"
+$TAG="1.0.0"
+
+az group create --name $RESOURCE_GROUP --location $LOCATION
+az acr create -n $ACR_NAME -g $RESOURCE_GROUP --sku Basic --location $LOCATION
+az acr build --registry $ACR_NAME --image $API_NAME":"$TAG ./library
+
+terraform plan -var resource_group_name=$RESOURCE_GROUP -var location=$LOCATION -var app_image_name=$API_NAME -var app_image_tag=$API_TAG
+terraform apply -var resource_group_name=$RESOURCE_GROUP -var location=$LOCATION -var app_image_name=$API_NAME -var app_image_tag=$API_TAG
 
 terraform destroy
 ```
