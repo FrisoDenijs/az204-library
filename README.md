@@ -10,9 +10,35 @@ practice app for az204
 See https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest&pivots=winget
 
 #### Sign in 
-`az login --use-device-code`.
+```
+az login --use-device-code
+```
 
 See https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interactively?view=azure-cli-latest#sign-in-with-a-browser
+
+### Terraform
+#### Setup
+```
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+
+$Env:ARM_CLIENT_ID = "<APPID_VALUE>"
+$Env:ARM_CLIENT_SECRET = "<PASSWORD_VALUE>"
+$Env:ARM_SUBSCRIPTION_ID = "<SUBSCRIPTION_ID>"
+$Env:ARM_TENANT_ID = "<TENANT_VALUE>"
+
+terraform init
+```
+
+See:
+- https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
+
+#### Run
+```
+terraform plan
+terraform apply
+
+terraform destroy
+```
 
 ### Bicep
 #### Install

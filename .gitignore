@@ -5,3 +5,9 @@ obj
 appsettings.Production.json
 
 *.zip
+
+tf.ps1
+.terraform.tfstate.lock.info
+.terraform.lock.hcl
+terraform.tfstate
+.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.0.2/windows_amd64/terraform-provider-azurerm_v3.0.2_x5.exe
