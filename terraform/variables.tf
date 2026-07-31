@@ -3,11 +3,6 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "location" {
-  description = "Location"
-  type        = string
-}
-
 variable "app_image_name" {
   description = "Name of app image"
   type        = string
@@ -28,6 +23,3 @@ variable "acr_name" {
   default = "az204lib"
 }
 
-variable "acr_sku" {
-  default = "Basic"
-}
