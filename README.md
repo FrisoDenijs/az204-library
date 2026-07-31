@@ -20,11 +20,14 @@ See https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interacti
 #### Setup
 ```
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+az role assignment create --assignee <APPID_VALUE> --role "User Access Administrator" --scope /subscriptions/<SUBSCRIPTION_ID>
 
 $Env:ARM_CLIENT_ID = "<APPID_VALUE>"
 $Env:ARM_CLIENT_SECRET = "<PASSWORD_VALUE>"
 $Env:ARM_SUBSCRIPTION_ID = "<SUBSCRIPTION_ID>"
 $Env:ARM_TENANT_ID = "<TENANT_VALUE>"
+
+$env:TF_LOG="DEBUG"
 
 terraform init
 ```
@@ -34,24 +37,25 @@ See:
 - https://medium.com/@vivazmo/azure-container-apps-with-terraform-part-1-ae20649e0dff
 - https://medium.com/@abhimanyubajaj98/a-devops-guide-to-deploying-azure-container-registry-and-container-group-using-terraform-and-bash-341203aa80be
 - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/resource_group
+- https://stackoverflow.com/a/77044815
 
 #### Run
 ```
 $RESOURCE_GROUP="az204-library-rg"
 $LOCATION="canadacentral"
 $ACR_NAME="az204lib"
-$API_NAME="az204-library-api-containerapp"
-$TAG="1.0.0"
+$API_NAME="az204-library-api"
+$API_TAG="1.0.0"
 
 az group create --name $RESOURCE_GROUP --location $LOCATION
 az acr create -n $ACR_NAME -g $RESOURCE_GROUP --sku Basic --location $LOCATION
-az acr build --registry $ACR_NAME --image $API_NAME":"$TAG ./library
+az acr build --registry $ACR_NAME --image $API_NAME":"$API_TAG ./library
 
 cd ./terraform
 terraform plan -var resource_group_name=$RESOURCE_GROUP -var app_image_name=$API_NAME -var app_image_tag=$API_TAG
 terraform apply -var resource_group_name=$RESOURCE_GROUP -var app_image_name=$API_NAME -var app_image_tag=$API_TAG
 
-terraform destroy
+terraform destroy -var resource_group_name=$RESOURCE_GROUP -var app_image_name=$API_NAME -var app_image_tag=$API_TAG
 ```
 
 ### Bicep

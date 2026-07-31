@@ -19,22 +19,34 @@ resource "azurerm_container_app" "az204lib" {
   resource_group_name          = data.azurerm_resource_group.az204lib.name
   revision_mode                = "Single"
 
+  identity {
+    type         = "UserAssigned"
+    identity_ids = [azurerm_user_assigned_identity.az204lib.id]
+  }
+
   registry {
-    server               = data.azurerm_container_registry.az204lib.login_server
-    username             = data.azurerm_container_registry.az204lib.admin_username
-    password_secret_name = data.azurerm_container_registry.az204lib.admin_password
+    server   = data.azurerm_container_registry.az204lib.login_server
+    identity = azurerm_user_assigned_identity.az204lib.id
+  }
+
+  ingress {
+    target_port      = 8081
+    external_enabled = true
+    traffic_weight {
+      percentage      = 100
+      latest_revision = true
+    }
   }
 
   template {
     container {
       name   = "ca-${local.stack}"
-      image  = "${var.app_image_name}:${var.app_image_tag}"
+      image  = "${data.azurerm_container_registry.az204lib.login_server}/${var.app_image_name}:${var.app_image_tag}"#var.app_image_name #:${var.app_image_tag}"
       cpu    = 0.25
       memory = "0.5Gi"
     }
-
-    # tags = local.default_tags
   }
+  tags = local.default_tags
 }
 
 output "azurerm_container_app_url" {
